@@ -42,5 +42,13 @@
              "version": "1.0",
              "crypt": "HMAC-SHA1"
         }
+    },
+    "sendgrid": {
+	"name": "SendGrid",
+	"protocol": "https",
+	"baseURL": "sendgrid.com",
+	"publicPath": "/api",
+	"auth": "key",
+	"keyParam": "api_key"
     }
 }

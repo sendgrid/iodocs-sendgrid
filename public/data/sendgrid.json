@@ -1,0 +1,62 @@
+{
+   "endpoints":[
+      {
+         "name":"Mail Methods",
+         "methods":[
+            {
+               "MethodName":"Send to one recipient",
+               "Synopsis":"Sends a message to one recipient",
+               "HTTPMethod":"GET",
+               "URI":"/mail.send.json",
+               "RequiresOAuth":"N",
+               "parameters":[
+                  {
+                     "Name":"to",
+                     "Required":"Y",
+                     "Default":"",
+                     "Type":"email",
+                     "Description":"Valid email address of receipient"
+                  },
+                  {
+                     "Name":"toname",
+                     "Required":"N",
+                     "Default":"",
+                     "Type":"string",
+                     "Description":"Given name of the recipient"
+                  },
+                  {
+                     "Name":"from",
+                     "Required":"Y",
+                     "Default":"",
+                     "Type":"email",
+                     "Description":"Valid email address of sender"
+                  },
+                  {
+                     "Name":"fromname",
+                     "Required":"N",
+                     "Default":"",
+                     "Type":"string",
+                     "Description":"Given name of the sender"
+                  },
+
+                  {
+                     "Name":"subject",
+                     "Required":"Y",
+                     "Default":"",
+                     "Type":"string",
+                     "Description":"Subject of the email"
+                  },
+                  {
+                     "Name":"text",
+                     "Required":"Y",
+                     "Default":"",
+                     "Type":"string",
+                     "Description":"Body of the email"
+                  }
+               ]
+            }
+         ]
+      }
+   ]
+}
+
