@@ -183,6 +183,9 @@ function oauth(req, res, next) {
             next();
         }
     } else {
+        if (apiConfig.secretParam) {
+            
+        }
         next();
     }
 
@@ -458,6 +461,9 @@ function processRequest(req, res, next) {
         if (apiKey != '') {
             options.path += '&' + apiConfig.keyParam + '=' + apiKey;
         }
+	if (apiSecret != '') {
+            options.path += '&' + apiConfig.secretParam + '=' + apiSecret;
+	}
 
         // Perform signature routine, if any.
         if (apiConfig.signature) {

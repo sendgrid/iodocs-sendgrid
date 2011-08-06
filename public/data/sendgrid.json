@@ -1,10 +1,10 @@
 {
    "endpoints":[
       {
-         "name":"Mail Methods",
+         "name":"Web API",
          "methods":[
             {
-               "MethodName":"Send to one recipient",
+               "MethodName":"Mail",
                "Synopsis":"Sends a message to one recipient",
                "HTTPMethod":"GET",
                "URI":"/mail.send.json",
@@ -38,7 +38,6 @@
                      "Type":"string",
                      "Description":"Given name of the sender"
                   },
-
                   {
                      "Name":"subject",
                      "Required":"Y",
@@ -54,9 +53,35 @@
                      "Description":"Body of the email"
                   }
                ]
+            },
+            {
+               "MethodName":"Blocks (GET)",
+               "Synopsis":"Retrieve a list of Blocks with addresses and response codes",
+               "HTTPMethod":"GET",
+               "URI":"/blocks.get.:format",
+               "RequiresOAuth":"N",
+               "parameters":[
+                  {
+                     "Name":"date",
+                     "Required":"N",
+                     "Default":"1",
+                     "Type":"int",
+                     "Description":"Retrieve timestamp of the Block records in YYYY-MM-DD HH:MM:SS format"
+                  },
+                  {
+                     "Name":"format",
+                     "Required":"N",
+                     "Default":"json",
+                     "Type":"enumerated",
+                     "EnumeratedList":[
+                        "json",
+                        "xml"
+                     ],
+                     "Description":"Response format"
+                  }
+               ]
             }
          ]
       }
    ]
 }
-
