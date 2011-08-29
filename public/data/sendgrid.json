@@ -1,66 +1,10 @@
 {
     "endpoints": [
         {
-            "name": "Mail",
-            "methods": [
-                {
-                    "MethodName": "Mail",
-                    "Synopsis": "Sends a message to one recipient",
-                    "HTTPMethod": "GET",
-                    "URI": "/mail.send.json",
-                    "RequiresOAuth": "N",
-                    "parameters": [
-                        {
-                            "Name": "to",
-                            "Required": "Y",
-                            "Default": "",
-                            "Type": "email",
-                            "Description": "Valid email address of receipient"
-                        },
-                        {
-                            "Name": "toname",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "string",
-                            "Description": "Given name of the recipient"
-                        },
-                        {
-                            "Name": "from",
-                            "Required": "Y",
-                            "Default": "",
-                            "Type": "email",
-                            "Description": "Valid email address of sender"
-                        },
-                        {
-                            "Name": "fromname",
-                            "Required": "N",
-                            "Default": "",
-                            "Type": "string",
-                            "Description": "Given name of the sender"
-                        },
-                        {
-                            "Name": "subject",
-                            "Required": "Y",
-                            "Default": "",
-                            "Type": "string",
-                            "Description": "Subject of the email"
-                        },
-                        {
-                            "Name": "text",
-                            "Required": "Y",
-                            "Default": "",
-                            "Type": "string",
-                            "Description": "Body of the email"
-                        }
-                    ]
-                }
-            ]
-        },
-        {
             "name": "Blocks",
             "methods": [
                 {
-                    "MethodName": "Blocks (GET)",
+                    "MethodName": "Get",
                     "Synopsis": "Retrieve a list of Blocks with addresses and response codes",
                     "HTTPMethod": "GET",
                     "URI": "/blocks.get.:format",
@@ -72,6 +16,27 @@
                             "Default": "1",
                             "Type": "int",
                             "Description": "Retrieve timestamp of the Block records in YYYY-MM-DD HH:MM:SS format"
+                        },
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Number of days in the past for which to retrieve blocks (includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range to look up statistics. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range to look up statistics. Date must be in YYYY-MM-DD format and be after the start_date parameter"
                         },
                         {
                             "Name": "format",
@@ -87,7 +52,7 @@
                     ]
                 },
                 {
-                    "MethodName": "Blocks (Delete)",
+                    "MethodName": "Delete",
                     "Synopsis": "Delete an address from the Block list",
                     "HTTPMethod": "GET",
                     "URI": "/blocks.delete.:format",
@@ -119,7 +84,7 @@
             "name": "Bounces",
             "methods": [
                 {
-                    "MethodName": "Bounces (GET)",
+                    "MethodName": "Get",
                     "Synopsis": "Retrieve a list of bounces with addresses and response codes, optionally with dates",
                     "HTTPMethod": "GET",
                     "URI": "/bounces.get.:format",
@@ -131,6 +96,27 @@
                             "Default": "1",
                             "Type": "int",
                             "Description": "Retrieve timestamp of the bounce records in YYYY-MM-DD HH:MM:SS format"
+                        },
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description":  "Number of days in the past for which to retrieve bounces (includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range for which to retrieve bounces. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range to retrieve bounces. Date must be in YYYY-MM-DD format and be after the start_date parameter"
                         },
                         {
                             "Name": "format",
@@ -146,7 +132,7 @@
                     ]
                 },
                 {
-                    "MethodName": "Bounces (Delete)",
+                    "MethodName": "Delete",
                     "Synopsis": "Delete an address from the bounce list",
                     "HTTPMethod": "GET",
                     "URI": "/bounces.delete.:format",
@@ -178,7 +164,7 @@
             "name": "Event Notification URL",
             "methods": [
                 {
-                    "MethodName": "Event Notification URL (GET)",
+                    "MethodName": "Get",
                     "Synopsis": "Retrieves the URL that Event Notifications will be POSTed to",
                     "HTTPMethod": "GET",
                     "URI": "/eventposturl.get.:format",
@@ -198,7 +184,7 @@
                     ]
                 },
                 {
-                    "MethodName": "Event Notification URL (Set)",
+                    "MethodName": "Set",
                     "Synopsis": "Sets the URL that Event Notifications will be POSTed to",
                     "HTTPMethod": "GET",
                     "URI": "/eventposturl.set.:format",
@@ -225,7 +211,7 @@
                     ]
                 },
                 {
-                    "MethodName": "Event Notification URL (Delete)",
+                    "MethodName": "Delete",
                     "Synopsis": "Removes the Event Notifications URL",
                     "HTTPMethod": "GET",
                     "URI": "/eventposturl.delete.:format",
@@ -302,13 +288,754 @@
                     "HTTPMethod": "GET",
                     "URI": "/filter.deactivate.:format",
                     "RequiresOAuth": "N",
-                  "parameters": [
+                    "parameters": [
                         {
                             "Name": "name",
                             "Required": "Y",
                             "Default": "",
                             "Type": "string",
                             "Description": "The name of the app to deactivate"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Invalid Emails",
+            "methods": [
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Retrieve a list of invalid emails with addresses and response codes, optionally with dates",
+                    "HTTPMethod": "GET",
+                    "URI": "/invalidemails.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "date",
+                            "Required": "N",
+                            "Default": "1",
+                            "Type": "int",
+                            "Description": "Retrieve timestamp of the invalid email records in YYYY-MM-DD HH:MM:SS format"
+                        },
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Number of days in the past for which to retrieve invalid emails (includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range for which to retrieve invalid emails. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range for which to retrieve invalid emails. Date must be in YYYY-MM-DD format and be after the start_date parameter"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Delete",
+                    "Synopsis": "Delete an address from the invalid email list",
+                    "HTTPMethod": "GET",
+                    "URI": "/invalidemails.delete.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "email",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Invalid email address to remove"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Mail",
+            "methods": [
+                {
+                    "MethodName": "Mail",
+                    "Synopsis": "Sends a message to one recipient",
+                    "HTTPMethod": "GET",
+                    "URI": "/mail.send.json",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "to",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "email",
+                            "Description": "Valid email address of receipient"
+                        },
+                        {
+                            "Name": "toname",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Given name of the recipient"
+                        },
+                        {
+                            "Name": "x-smtpapi",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Must be valid JSON. Please review SMPT API documentation on what you can do with the JSON headers"
+                        },
+                        {
+                            "Name": "from",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "email",
+                            "Description": "Valid email address of sender"
+                        },
+                        {
+                            "Name": "fromname",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Given name of the sender"
+                        },
+                        {
+                            "Name": "subject",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Subject of the email"
+                        },
+                        {
+                            "Name": "text",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Body of the email"
+                        },
+                        {
+                            "Name": "html",
+                            "Required": "n",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "HTML Body of the email. At least one of the text or html parameters must be specified."
+                        },
+                        {
+                            "Name": "bcc",
+                            "Required": "n",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Valid email address to be BCC'd. This can also be passed in as an array of email addresses for multiple recipients"
+                        },
+                        {
+                            "Name": "date",
+                            "Required": "n",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Specify the date header of your email. Must be a valid RFC 2822 formatted date"
+                        },
+                        {
+                            "Name": "headers",
+                            "Required": "n",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "A collection of key/value pairs in JSON format. Each key represents a header name and the value the header value. Ex: {“X-Accept-Language”: “en”, “X-Mailer”: “MyApp”}"
+                        },
+                        {
+                            "Name": "files",
+                            "Required": "n",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Add attachment. Ex: files[file1.doc]=example.doc&files[file2.pdf]=example.pdf. Must be less than 7MB. "
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Parse",
+            "methods": [
+                {
+                    "MethodName": "Get Current Settings",
+                    "Synopsis": "Retrieve the settings already configured for parsing incoming email",
+                    "HTTPMethod": "GET",
+                    "URI": "/parse.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Set New Entry",
+                    "Synopsis": "Specify the hostname and url for parsing incoming emails",
+                    "HTTPMethod": "GET",
+                    "URI": "/parse.set.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "hostname",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Hostname"
+                        },
+                        {
+                            "Name": "url",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "URL that parsed emails will be POSTed to"
+                        },
+                        {
+                            "Name": "spam_check",
+                            "Required": "Y",
+                            "Default": "0",
+                            "Type": "int",
+                            "Description": "Check incoming messages for spam"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Delete Entry",
+                    "Synopsis": "Delete the existing settings for parsing incoming emails",
+                    "HTTPMethod": "GET",
+                    "URI": "/parse.delete.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "hostname",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Hostname"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Profile",
+            "methods": [
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Retrieve user profile information",
+                    "HTTPMethod": "GET",
+                    "URI": "/profile.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Update",
+                    "Synopsis": "Update user profile information",
+                    "HTTPMethod": "GET",
+                    "URI": "/profile.set.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "first_name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "First name"
+                        },
+                        {
+                            "Name": "last_name",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Last name"
+                        },
+                        {
+                            "Name": "address",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Company address"
+                        },
+                        {
+                            "Name": "city",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "City where company is located"
+                        },
+                        {
+                            "Name": "state",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "State where company is located"
+                        },
+                        {
+                            "Name": "country",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Country where company is located"
+                        },
+                        {
+                            "Name": "zip",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Postal code where your company is located"
+                        },
+                        {
+                            "Name": "phone",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Valid company phone number"
+                        },
+                        {
+                            "Name": "website",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Company website"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Reset Password",
+                    "Synopsis": "Reset password",
+                    "HTTPMethod": "GET",
+                    "URI": "/password.set.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "password",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "New password, at least 6 characters"
+                        },
+                        {
+                            "Name": "confirm_password",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Password confirmation. Must match new password"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Update Username",
+                    "Synopsis": "Updates username used to login to SMTP server and the website. Changes will take effect immediately",
+                    "HTTPMethod": "GET",
+                    "URI": "/profile.setUsername.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "username",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "New username. Must not exceed 100 characters"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Update Email Address",
+                    "Synopsis": "Updates contact email. We send a confirmation to the new email address in order to be validated. Your email address changes when you click on the confirmation link",
+                    "HTTPMethod": "GET",
+                    "URI": "/profile.setEmail.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "email",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "New email. Must be in email format and no more than 100 characters"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Spam Reports",
+            "methods": [
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Retrieve a list of spam reports with addresses and response codes, optionally with dates",
+                    "HTTPMethod": "GET",
+                    "URI": "/spamreports.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "date",
+                            "Required": "N",
+                            "Default": "1",
+                            "Type": "int",
+                            "Description": "Retrieve timestamp of the spam report records in YYYY-MM-DD HH:MM:SS format"
+                        },
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Number of days in the past for which to retrieve spam reports (includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range for which to retrieve spam reports. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range for which to retrieve spam reports. Date must be in YYYY-MM-DD format and be after the start_date parameter"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Delete",
+                    "Synopsis": "Delete an address from the Spam Reports list",
+                    "HTTPMethod": "GET",
+                    "URI": "/spamreports.delete.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "email",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Email block address to remove"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Statistics",
+            "methods": [
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Retrieve a list of statistics",
+                    "HTTPMethod": "GET",
+                    "URI": "/stats.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Number of days in the past for which to retrieve statistics (Includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range for which to retrieve statistics. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range for which to retrieve statistics. Date must be in YYYY-MM-DD format and be after the start_date parameter"
+                        },
+                        {
+                            "Name": "aggregate",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Set to 1 to retrieve all-time totals including all subusers"
+                        },
+                        {
+                            "Name": "category",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "The category or categories for which to retrieve stats. Multiple categories can be passed as follows: category[]=categoryA&category[]=categoryB."
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "List Categories",
+                    "Synopsis": "Retrieve a list of all categories for your account",
+                    "HTTPMethod": "GET",
+                    "URI": "/stats.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "list",
+                            "Required": "Y",
+                            "Default": "true",
+                            "Type": "string",
+                            "Description": "Flag indicating whether or not to retrieve category list"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Unsubscribes",
+            "methods": [
+                {
+                    "MethodName": "Get",
+                    "Synopsis": "Retrieve a list of unsubscribes, optionally with dates",
+                    "HTTPMethod": "GET",
+                    "URI": "/unsubscribes.get.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "date",
+                            "Required": "N",
+                            "Default": "1",
+                            "Type": "int",
+                            "Description": "Retrieve timestamp of the unsubscribe records in YYYY-MM-DD HH:MM:SS format"
+                        },
+                        {
+                            "Name": "days",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "Number of days in the past for which to retrieve unsubscribes (includes today). Must be an integer greater than 0"
+                        },
+                        {
+                            "Name": "start_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The start date of the range for which to retrieve unsubscribes. Date must be in YYYY-MM-DD format and be before the end_date parameter"
+                        },
+                        {
+                            "Name": "end_date",
+                            "Required": "N",
+                            "Default": "",
+                            "Type": "int",
+                            "Description": "The end date of the range for which to retrieve unsubscribes. Date must be in YYYY-MM-DD format and be after the start_date parameter"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Delete",
+                    "Synopsis": "Delete an address from the unsubscribe list",
+                    "HTTPMethod": "GET",
+                    "URI": "/unsubscribes.delete.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "email",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Email address to remove"
+                        },
+                        {
+                            "Name": "format",
+                            "Required": "N",
+                            "Default": "json",
+                            "Type": "enumerated",
+                            "EnumeratedList": [
+                                "json",
+                                "xml"
+                            ],
+                            "Description": "Response format"
+                        }
+                    ]
+                },
+                {
+                    "MethodName": "Add",
+                    "Synopsis": "Add an address to the unsubscribe list",
+                    "HTTPMethod": "GET",
+                    "URI": "/unsubscribes.add.:format",
+                    "RequiresOAuth": "N",
+                    "parameters": [
+                        {
+                            "Name": "email",
+                            "Required": "Y",
+                            "Default": "",
+                            "Type": "string",
+                            "Description": "Email address to add"
                         },
                         {
                             "Name": "format",
