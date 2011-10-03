@@ -114,7 +114,7 @@ html {
 }
 
 a:link {
-  -webkit-tap-highlight-color: #ff5e99;
+  -webkit-tap-highlight-color: #8394A9;
 }
 
 a:hover,
@@ -277,7 +277,7 @@ html {
   height: 100%;
 }
 
-body {
+#body-container {
   width: 960px;
   margin: 15px auto;
   padding-bottom: 20px;
@@ -309,9 +309,50 @@ li {
   margin-left: 0;
 }
 
+#header {
+	background:url(/images/sendgrid-header-bg.png) repeat 0 0;
+	height:80px;
+}
+
+#header-logo {
+  width: 960px;
+  margin: 0 auto;
+  padding-top:14px;
+  padding-bottom: 20px;
+}
+
+#sub-header {
+  width: 100%;
+  margin: 0 auto;
+  background: url(/images/sendgrid-subheader-bg.png) repeat-x 0 0;
+  height: 62px;
+}
+
+#sub-header-links {
+  width: 960px;
+  margin: 0 auto;
+  padding-top:14px;
+  padding-bottom: 20px;	
+}
+
+#sub-header a {
+	font-size:14px;
+	padding:3px 25px 15px 5px;
+	font-weight: bolder;
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 18px;
+	text-transform: uppercase;
+	text-rendering: optimizelegibility;
+	float: left;
+	margin-right: 1%;
+	
+}
+
 .credentials {
-  background-color: #f4f4e1;
-  border: 1px solid #cbcb71;
+  background-color: #E7F0F7;
+  border: 1px solid #029DE7;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -386,7 +427,7 @@ li {
 .endpoint {
   margin: 0;
   background-color: #f9f9f9;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #C9C9C9;
   overflow: hidden;
   *zoom: 1;
   -moz-transition-property: background-color;
@@ -417,11 +458,13 @@ li {
 .endpoint > .title .name {
   font-size: 18px;
   float: left;
+  color: #029DE7;
 }
 
 .endpoint > .title .name:hover {
   cursor: pointer;
   text-decoration: underline;
+  color: #0072A8;
 }
 
 .endpoint > .title .actions {
@@ -637,11 +680,11 @@ li {
 
 .get {
   background: #e7f0f7;
-  border-color: #aecce4;
+  border-color: #029DE7;
 }
 
 .get .http-method {
-  background-color: #0061ac;
+  background-color: #029DE7;
 }
 
 .get th, .get td {

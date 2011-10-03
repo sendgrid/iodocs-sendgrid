@@ -45,13 +45,14 @@
    },
    "sendgrid":{
       "name":"SendGrid",
+      "logo":"/images/sendgrid.png",
       "protocol":"https",
       "baseURL":"sendgrid.com",
       "publicPath":"/api",
       "auth":"key",
       "keyParam":"api_user",
-      "keyLabel":"API Key (username)",
+      "keyLabel":"Username",
       "secretParam":"api_key",
-      "secretLabel":"API Secret (password)"
+      "secretLabel":"Password"
    }
 }
