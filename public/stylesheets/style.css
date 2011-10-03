@@ -321,6 +321,35 @@ li {
   padding-bottom: 20px;
 }
 
+#sub-header {
+  width: 100%;
+  margin: 0 auto;
+  background: url(/images/sendgrid-subheader-bg.png) repeat-x 0 0;
+  height: 62px;
+}
+
+#sub-header-links {
+  width: 960px;
+  margin: 0 auto;
+  padding-top:14px;
+  padding-bottom: 20px;	
+}
+
+#sub-header a {
+	font-size:14px;
+	padding:3px 25px 15px 5px;
+	font-weight: bolder;
+	color: #333;
+	text-decoration: none;
+	display: block;
+	line-height: 18px;
+	text-transform: uppercase;
+	text-rendering: optimizelegibility;
+	float: left;
+	margin-right: 1%;
+	
+}
+
 .credentials {
   background-color: #E7F0F7;
   border: 1px solid #029DE7;
