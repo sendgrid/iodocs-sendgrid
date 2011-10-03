@@ -1,7 +1,3 @@
-- if (apiInfo.logo)
-    img(src=apiInfo.logo) 
-- else
-    h2=apiInfo.name
 - if (session.authed && apiInfo.oauth && apiInfo.oauth.type =='three-legged')
     - var authed ='authed'
 - else
