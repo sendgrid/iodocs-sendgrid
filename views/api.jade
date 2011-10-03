@@ -1,9 +1,11 @@
-h1=apiInfo.name 
+- if (apiInfo.logo)
+    img(src=apiInfo.logo) 
+- else
+    h2=apiInfo.name
 - if (session.authed && apiInfo.oauth && apiInfo.oauth.type =='three-legged')
     - var authed ='authed'
 - else
     - var authed =''
-
 
 form#credentials
     input(type='hidden', name='apiName', value=apiName)
@@ -13,7 +15,7 @@ form#credentials
              span Authenticated with OAuth
              img(src='/images/accept.png')
          - else
-             h2 API Credentials
+             h2=apiInfo.name + " Credentials"
                img(src='/images/key.png')
 
              - if (apiInfo.oauth)
@@ -37,7 +39,7 @@ form#credentials
              div
                  - if (apiInfo.oauth || apiInfo.signature || apiInfo.secretParam)
                      - if (apiInfo.secretLabel)
-                          label(for="secret')=apiInfo.secretLabel
+                          label(for='secret')=apiInfo.secretLabel
                      - else
                           label(for='secret') Shared Secret
                      input(id='secret', name='secret', value=defaultSecret, style='color=#EEEEEE', type='password')
