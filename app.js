@@ -594,9 +594,8 @@ app.dynamicHelpers({
 // Routes
 //
 app.get('/', function(req, res) {
-    res.render('sendgrid', {
-        title: config.title
-    });
+	req.params.api = 'sendgrid'
+    res.render('api');
 });
 
 // Process the API request
