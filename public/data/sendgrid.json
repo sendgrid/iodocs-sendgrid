@@ -1175,7 +1175,7 @@
         "name": "Newsletter",
         "methods": [
         {
-            "MethodName": "Get",
+            "MethodName": "Get Newsletter",
             "Synopsis": "Get the contents of an existing newsletter",
             "HTTPMethod": "GET",
             "URI": "/api/newsletter/get.:format",
@@ -1202,7 +1202,7 @@
             ]
         },
         {
-            "MethodName": "Add",
+            "MethodName": "Add Newsletter",
             "Synopsis": "Create a Newsletter",
             "HTTPMethod": "GET",
             "URI": "/api/newsletter/add.:format",
@@ -1257,7 +1257,7 @@
             ]
         },
         {
-            "MethodName": "Edit",
+            "MethodName": "Edit Newsletter",
             "Synopsis": "Edit a Newsletter",
             "HTTPMethod": "GET",
             "URI": "/api/newsletter/edit.:format",
@@ -1319,7 +1319,7 @@
             ]
         },
         {
-            "MethodName": "List",
+            "MethodName": "List Newsletters",
             "Synopsis": "Retrieve a list of all newsletters",
             "HTTPMethod": "GET",
             "URI": "/api/newsletter/list.:format",
@@ -1346,7 +1346,7 @@
             ]
         },
         {
-            "MethodName": "Delete",
+            "MethodName": "Delete Newsletter",
             "Synopsis": "Delete a newsletters",
             "HTTPMethod": "GET",
             "URI": "/api/newsletter/delete.:format",
@@ -1582,6 +1582,436 @@
                 "Default": "",
                 "Type": "string",
                 "Description": "The email addresses or addresses to be removed"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Get Identity",
+            "Synopsis": "Retrieve a particular identity",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/identity/get.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "identity",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The identity to retrieve"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Add Identity",
+            "Synopsis": "Create a new Identity",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/identity/add.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "identity",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The title of the identity"
+            },
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The address name to be used for this identity"
+            },
+            {
+                "Name": "email",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The email address for this identity"
+            },
+            {
+                "Name": "address",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The street address for this identity"
+            },
+            {
+                "Name": "city",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The city for this identity"
+            },
+            {
+                "Name": "state",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The state for this identity"
+            },
+            {
+                "Name": "zip",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The postal code for this identity"
+            },
+            {
+                "Name": "country",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The country for this identity"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Edit Identity",
+            "Synopsis": "Edit an Identity",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/identity/edit.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "identity",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The title of the identity you wish to edit"
+            },
+            {
+                "Name": "newidentity",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The new title for the identity you are editing"
+            },
+            {
+                "Name": "name",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The address name to be used for this identity"
+            },
+            {
+                "Name": "email",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The email address for this identity"
+            },
+            {
+                "Name": "address",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The street address for this identity"
+            },
+            {
+                "Name": "city",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The city for this identity"
+            },
+            {
+                "Name": "state",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The state for this identity"
+            },
+            {
+                "Name": "zip",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The postal code for this identity"
+            },
+            {
+                "Name": "country",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "The country for this identity"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "List Identities",
+            "Synopsis": "Retrieve a list of all identities or check if an identity exists",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/identity/list.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "identity",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "Optional identity to search for"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Delete Identity",
+            "Synopsis": "Delete an identity",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/identity/delete.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "identity",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The identity to be removed"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Get Lists Assigned to Newsletter",
+            "Synopsis": "Retrieve the lists assigned to a particular newsletter",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/recipients/get.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter for which to retrieve lists"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Assign Lists to Newsletter",
+            "Synopsis": "Add one or more emails to a list",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/recipients/add.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter to which list will be added"
+            },
+            {
+                "Name": "list",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The name of the list to add to the newsletter"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Remove Assigned Lists from Newsletter",
+            "Synopsis": "Remove one or more emails from a list",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/recipients/delete.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter to which list will be added"
+            },
+            {
+                "Name": "list",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The name of the list to add to the newsletter"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Get Newsletter Schedule",
+            "Synopsis": "Retrieve the scheduled delivery time for a particular newsletter",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/schedule/get.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter for which to retrieve the schedule"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Add Newsletter Schedule",
+            "Synopsis": "Schedule a delivery time for an existing newsletter",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/schedule/add.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter to schedule"
+            },
+            {
+                "Name": "at",
+                "Required": "N",
+                "Default": "",
+                "Type": "string",
+                "Description": "Date/Time to deliver the newsletter. Must be provided in ISO 8601 format (YYYY-MM-DD HH:MM:SS +-HH:MM)"
+            },
+            {
+                "Name": "after",
+                "Required": "N",
+                "Default": "",
+                "Type": "int",
+                "Description": "Number of minutes in the future to schedule delivery, e.g. a value of 30 will schedule delivery 30 minutes after the request is received"
+            },
+            {
+                "Name": "format",
+                "Required": "N",
+                "Default": "json",
+                "Type": "enumerated",
+                "EnumeratedList": [
+                "json",
+                "xml"
+                ],
+                "Description": "Response format"
+            }
+            ]
+        },
+        {
+            "MethodName": "Delete Newsletter Schedule",
+            "Synopsis": "Cancel a schedule send for a newsletter",
+            "HTTPMethod": "GET",
+            "URI": "/api/newsletter/schedule/delete.:format",
+            "RequiresOAuth": "N",
+            "parameters": [
+            {
+                "Name": "name",
+                "Required": "Y",
+                "Default": "",
+                "Type": "string",
+                "Description": "The newsletter to unschedule"
             },
             {
                 "Name": "format",
