@@ -20,8 +20,8 @@
     })
 
     // Toggle an endpoint
-    $('li.endpoint > h3.title span.name').click(function() {
-        $('ul.methods', this.parentNode.parentNode).slideToggle();
+    $('li.endpoint').click(function() {
+        $('ul.methods', this).slideToggle();
         $(this.parentNode.parentNode).toggleClass('expanded')
     })
 

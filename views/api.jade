@@ -73,12 +73,11 @@ ul
                             span.http-method #{method.HTTPMethod}
                             span.name #{method.MethodName}
                             span.uri #{method.URI}
+                            span.description #{method.Synopsis}
                         form.hidden
                             input(type='hidden', name='httpMethod', value=method.HTTPMethod)
                             input(type='hidden', name='oauth', value=secure)
                             input(type='hidden', name='methodUri', value=method.URI)
-
-                            span.description #{method.Synopsis}
                             br
                             br
                             - if (method.parameters.length > 0)
