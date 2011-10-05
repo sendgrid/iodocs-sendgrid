@@ -54,12 +54,13 @@ ul
     - each endpoint in apiDefinition.endpoints
         li.endpoint
             h3.title
-                span.name=endpoint.name
-                ul.actions
-                    li.list-methods
-                        a(href='#') List Methods
-                    li.expand-methods
-                        a(href='#') Expand Methods
+                div.name=endpoint.name
+                div.action-container
+                    ul.actions
+                        li.list-methods
+                            a(href='#') List Methods
+                        li.expand-methods
+                            a(href='#') Expand Methods
             - if (endpoint.methods.length)
             ul.methods.hidden
                 - each method in endpoint.methods
@@ -73,14 +74,11 @@ ul
                             span.http-method #{method.HTTPMethod}
                             span.name #{method.MethodName}
                             span.uri #{method.URI}
+                            span.description #{method.Synopsis}
                         form.hidden
                             input(type='hidden', name='httpMethod', value=method.HTTPMethod)
                             input(type='hidden', name='oauth', value=secure)
                             input(type='hidden', name='methodUri', value=method.URI)
-
-                            span.description #{method.Synopsis}
-                            br
-                            br
                             - if (method.parameters.length > 0)
                                 table.parameters
                                     thead
@@ -151,4 +149,4 @@ ul
                                         a(href='#', class='add-headers') Add Header
                                     // Create header fields and button to add/remove headers.
                             - if (!method['read-only'])
-                                input(type='submit', id=method.MethodName, value='Try it!')
+                                input.submit-request(type='submit', id=method.MethodName, value='Try it!')

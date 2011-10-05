@@ -225,6 +225,20 @@ textarea {
   overflow: auto;
 }
 
+.submit-request{
+  padding: 0 10px;
+  width: auto;
+  text-align: center;
+  margin: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 33px;
+}
+
 input::-moz-focus-inner,
 button::-moz-focus-inner {
   border: 0;
@@ -450,15 +464,17 @@ li {
 
 .endpoint > .title {
   font-weight: normal;
-  padding: 20px 0 10px 10px;
   overflow: hidden;
   *zoom: 1;
 }
 
 .endpoint > .title .name {
+  width: 730px;
+  cursor: pointer;
   font-size: 18px;
   float: left;
   color: #029DE7;
+  padding: 12px 5px;
 }
 
 .endpoint > .title .name:hover {
@@ -468,7 +484,9 @@ li {
 }
 
 .endpoint > .title .actions {
+  width: 220px;
   float: right;
+  margin-top: 15px;
 }
 
 .endpoint > .title .actions li {
