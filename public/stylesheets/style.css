@@ -456,6 +456,8 @@ li {
 }
 
 .endpoint > .title .name {
+  width: 730px;
+  cursor: pointer;
   font-size: 18px;
   float: left;
   color: #029DE7;
@@ -468,6 +470,7 @@ li {
 }
 
 .endpoint > .title .actions {
+  width: 220px;
   float: right;
 }
 

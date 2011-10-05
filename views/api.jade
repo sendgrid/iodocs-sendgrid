@@ -54,12 +54,13 @@ ul
     - each endpoint in apiDefinition.endpoints
         li.endpoint
             h3.title
-                span.name=endpoint.name
-                ul.actions
-                    li.list-methods
-                        a(href='#') List Methods
-                    li.expand-methods
-                        a(href='#') Expand Methods
+                div.name=endpoint.name
+                div.action-container
+                    ul.actions
+                        li.list-methods
+                            a.list-method-actuator(href='#') List Methods
+                        li.expand-methods
+                            a.expand-method-actuator(href='#') Expand Methods
             - if (endpoint.methods.length)
             ul.methods.hidden
                 - each method in endpoint.methods
@@ -78,8 +79,6 @@ ul
                             input(type='hidden', name='httpMethod', value=method.HTTPMethod)
                             input(type='hidden', name='oauth', value=secure)
                             input(type='hidden', name='methodUri', value=method.URI)
-                            br
-                            br
                             - if (method.parameters.length > 0)
                                 table.parameters
                                     thead
