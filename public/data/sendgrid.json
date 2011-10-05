@@ -496,7 +496,7 @@
             "MethodName": "Get Newsletter",
             "Synopsis": "Get the contents of an existing newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/get.:format",
+            "URI": "/newsletter/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -523,7 +523,7 @@
             "MethodName": "Add Newsletter",
             "Synopsis": "Create a Newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/add.:format",
+            "URI": "/newsletter/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -578,7 +578,7 @@
             "MethodName": "Edit Newsletter",
             "Synopsis": "Edit a Newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/edit.:format",
+            "URI": "/newsletter/edit.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -640,7 +640,7 @@
             "MethodName": "List Newsletters",
             "Synopsis": "Retrieve a list of all newsletters",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/list.:format",
+            "URI": "/newsletter/list.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -667,7 +667,7 @@
             "MethodName": "Delete Newsletter",
             "Synopsis": "Delete a newsletters",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/delete.:format",
+            "URI": "/newsletter/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -694,7 +694,7 @@
             "MethodName": "Get Lists",
             "Synopsis": "Retrieve all recipients lists or check if a particular list exists",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/get.:format",
+            "URI": "/newsletter/lists/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -721,7 +721,7 @@
             "MethodName": "Add List",
             "Synopsis": "Create a Recipient List",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/add.:format",
+            "URI": "/newsletter/lists/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -755,7 +755,7 @@
             "MethodName": "Edit List",
             "Synopsis": "Rename a List",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/edit.:format",
+            "URI": "/newsletter/lists/edit.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -789,7 +789,7 @@
             "MethodName": "Delete List",
             "Synopsis": "Delete a list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/delete.:format",
+            "URI": "/newsletter/lists/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -816,7 +816,7 @@
             "MethodName": "Get List Emails",
             "Synopsis": "Retrieve the email addresses and associated fields for a particular list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/email/get.:format",
+            "URI": "/newsletter/lists/email/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -850,7 +850,7 @@
             "MethodName": "Add List Emails",
             "Synopsis": "Add one or more emails to a list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/email/add.:format",
+            "URI": "/newsletter/lists/email/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -884,7 +884,7 @@
             "MethodName": "Delete List Emails",
             "Synopsis": "Remove one or more emails from a list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/lists/email/delete.:format",
+            "URI": "/newsletter/lists/email/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -918,7 +918,7 @@
             "MethodName": "Get Identity",
             "Synopsis": "Retrieve a particular identity",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/identity/get.:format",
+            "URI": "/newsletter/identity/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -945,7 +945,7 @@
             "MethodName": "Add Identity",
             "Synopsis": "Create a new Identity",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/identity/add.:format",
+            "URI": "/newsletter/identity/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1021,7 +1021,7 @@
             "MethodName": "Edit Identity",
             "Synopsis": "Edit an Identity",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/identity/edit.:format",
+            "URI": "/newsletter/identity/edit.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1104,7 +1104,7 @@
             "MethodName": "List Identities",
             "Synopsis": "Retrieve a list of all identities or check if an identity exists",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/identity/list.:format",
+            "URI": "/newsletter/identity/list.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1131,7 +1131,7 @@
             "MethodName": "Delete Identity",
             "Synopsis": "Delete an identity",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/identity/delete.:format",
+            "URI": "/newsletter/identity/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1158,7 +1158,7 @@
             "MethodName": "Get Lists Assigned to Newsletter",
             "Synopsis": "Retrieve the lists assigned to a particular newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/recipients/get.:format",
+            "URI": "/newsletter/recipients/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1185,7 +1185,7 @@
             "MethodName": "Assign Lists to Newsletter",
             "Synopsis": "Add one or more emails to a list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/recipients/add.:format",
+            "URI": "/newsletter/recipients/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1219,7 +1219,7 @@
             "MethodName": "Remove Assigned Lists from Newsletter",
             "Synopsis": "Remove one or more emails from a list",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/recipients/delete.:format",
+            "URI": "/newsletter/recipients/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1253,7 +1253,7 @@
             "MethodName": "Get Newsletter Schedule",
             "Synopsis": "Retrieve the scheduled delivery time for a particular newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/schedule/get.:format",
+            "URI": "/newsletter/schedule/get.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1280,7 +1280,7 @@
             "MethodName": "Add Newsletter Schedule",
             "Synopsis": "Schedule a delivery time for an existing newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/schedule/add.:format",
+            "URI": "/newsletter/schedule/add.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
@@ -1321,7 +1321,7 @@
             "MethodName": "Delete Newsletter Schedule",
             "Synopsis": "Cancel a schedule send for a newsletter",
             "HTTPMethod": "GET",
-            "URI": "/api/newsletter/schedule/delete.:format",
+            "URI": "/newsletter/schedule/delete.:format",
             "RequiresOAuth": "N",
             "parameters": [
             {
