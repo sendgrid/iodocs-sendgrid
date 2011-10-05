@@ -181,16 +181,16 @@
         var resultContainer = $('.result', self);
         if (resultContainer.length === 0) {
             resultContainer = $(document.createElement('div')).attr('class', 'result');
+			resultContainer.css('display','none');
             $(self).append(resultContainer);
         }
 
         if ($('pre.response', resultContainer).length === 0) {
 
             // Clear results link
-            var clearLink = $(document.createElement('a'))
+            var clearLink = $(document.createElement('button'))
                 .text('Clear results')
                 .addClass('clear-results')
-                .attr('href', '#')
                 .click(function(e) {
                     e.preventDefault();
 
@@ -227,6 +227,8 @@
 
             resultContainer.append($(document.createElement('pre'))
                 .addClass('response prettyprint'));
+
+		    resultContainer.slideDown();
         }
 
         console.log(params);

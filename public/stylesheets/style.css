@@ -237,6 +237,29 @@ textarea {
   -khtml-border-radius: 5px;
   border-radius: 5px;
   line-height: 33px;
+  float:left;
+}
+
+.clear-results{
+  margin-left:5px;
+  padding: 0 10px;
+  width: auto;
+  text-align: center;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  line-height: 33px;
+  color:red;
+}
+
+.result { clear: both;}
+
+.method form a.clear-results:hover {
+  background-color: red;
+  color: #fff;
 }
 
 input::-moz-focus-inner,
@@ -562,6 +585,7 @@ li {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
+  padding:3px;
 }
 
 .method .title:hover {
@@ -619,17 +643,7 @@ li {
   clear: both;
   padding: 15px;
   display: none;
-}
-
-.method form a.clear-results {
-  color: red;
-  margin-left: 20px;
-  font-size: 12px;
-}
-
-.method form a.clear-results:hover {
-  background-color: red;
-  color: #fff;
+  border-top: 1px dashed #029DE7;
 }
 
 .method table {
