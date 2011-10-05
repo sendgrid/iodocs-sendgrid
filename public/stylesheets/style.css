@@ -450,7 +450,6 @@ li {
 
 .endpoint > .title {
   font-weight: normal;
-  padding: 20px 0 10px 10px;
   overflow: hidden;
   *zoom: 1;
 }
@@ -461,6 +460,7 @@ li {
   font-size: 18px;
   float: left;
   color: #029DE7;
+  padding: 12px 5px;
 }
 
 .endpoint > .title .name:hover {
@@ -472,6 +472,7 @@ li {
 .endpoint > .title .actions {
   width: 220px;
   float: right;
+  margin-top: 15px;
 }
 
 .endpoint > .title .actions li {
