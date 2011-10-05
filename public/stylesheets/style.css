@@ -237,7 +237,6 @@ textarea {
   -khtml-border-radius: 5px;
   border-radius: 5px;
   line-height: 33px;
-  float:left;
 }
 
 .clear-results{
@@ -253,9 +252,8 @@ textarea {
   border-radius: 5px;
   line-height: 33px;
   color:red;
+  float:right;
 }
-
-.result { clear: both;}
 
 .method form a.clear-results:hover {
   background-color: red;
