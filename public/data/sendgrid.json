@@ -1581,7 +1581,7 @@
         },
         {
             "MethodName": "Update Username",
-            "Synopsis": "Updates username used to login to SMTP server and the website. Changes will take effect immediately",
+            "Synopsis": "Updates username for SMTP server and the website. Changes take effect immediately",
             "HTTPMethod": "GET",
             "URI": "/profile.setUsername.:format",
             "RequiresOAuth": "N",
@@ -1608,7 +1608,7 @@
         },
         {
             "MethodName": "Update Email Address",
-            "Synopsis": "Updates contact email. We send a confirmation to the new email address in order to be validated. Your email address changes when you click on the confirmation link",
+            "Synopsis": "Updates contact email. Sends an email to confirm the new address.",
             "HTTPMethod": "GET",
             "URI": "/profile.setEmail.:format",
             "RequiresOAuth": "N",

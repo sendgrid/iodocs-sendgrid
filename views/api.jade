@@ -58,9 +58,9 @@ ul
                 div.action-container
                     ul.actions
                         li.list-methods
-                            a.list-method-actuator(href='#') List Methods
+                            a(href='#') List Methods
                         li.expand-methods
-                            a.expand-method-actuator(href='#') Expand Methods
+                            a(href='#') Expand Methods
             - if (endpoint.methods.length)
             ul.methods.hidden
                 - each method in endpoint.methods
@@ -149,4 +149,4 @@ ul
                                         a(href='#', class='add-headers') Add Header
                                     // Create header fields and button to add/remove headers.
                             - if (!method['read-only'])
-                                input(type='submit', id=method.MethodName, value='Try it!')
+                                input.submit-request(type='submit', id=method.MethodName, value='Try it!')
