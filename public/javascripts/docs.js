@@ -21,8 +21,15 @@
 
     // Toggle an endpoint
     $('li.endpoint > h3.title div.name').click(function() {
-        $('ul.methods', this.parentNode.parentNode).slideToggle();
-        $(this.parentNode.parentNode).toggleClass('expanded')
+        endpoint = $(this.parentNode.parentNode);
+        $('ul.methods', endpoint).slideToggle();
+
+        endpoint.toggleClass('expanded');
+
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+		
+		var img = $(this).find('img.down');
+        img.attr('src',src);
     })
 
     // Toggle all endpoints
@@ -40,6 +47,10 @@
                 methodsList.slideDown();
                 methodsList.parent().toggleClass('expanded', true)
 
+				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+				var img = methodsList.parent().find('img.down');
+		        img.attr('src',src);
             }
         } else {
             // All endpoints are expanded, collapse them
@@ -50,6 +61,11 @@
                 var methodsList = $(endpoints[x]);
                 methodsList.slideUp();
                 methodsList.parent().toggleClass('expanded', false)
+
+				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+				var img = methodsList.parent().find('img.down');
+		        img.attr('src',src);
             }
         }
 
@@ -68,8 +84,9 @@
             methodListsLength = methodLists.length;
 
             // First make sure all the hidden endpoints are expanded.
-            for (var x = 0; x < methodListsLength; x++) {
-                $(methodLists[x]).slideDown();
+            for (var x = 0; x < methodListsLength; x++) {	
+				$(methodLists[x]).slideDown();
+
             }
 
             // Now make sure all the hidden methods are expanded.
@@ -89,6 +106,12 @@
 
         for (var z = 0; z < allEndpointsLength; z++) {
             $(allEndpoints[z]).toggleClass('expanded', true);
+  
+            var endpoint = $(allEndpoints[z]);
+			var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+			var img = endpoint.find('img.down');
+	        img.attr('src',src);	
         }
     })
 
@@ -98,7 +121,7 @@
         event.preventDefault();
 
         // Make sure endpoint is expanded
-        var endpoint = $(this).closest('li.endpoint'),
+        var endpoint = $($(this).closest('li.endpoint')),
             methods = $('li.method form', endpoint);
 
         listMethods(endpoint);
@@ -114,6 +137,11 @@
 
         $(endpoint).toggleClass('expanded', true);
 
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = endpoint.find('img.down');
+        img.attr('src',src);
+
     })
 
     // Expand methods for a particular endpoint.
@@ -122,7 +150,7 @@
         event.preventDefault();
 
         // Make sure endpoint is expanded
-        var endpoint = $(this).closest('li.endpoint'),
+        var endpoint = $($(this).closest('li.endpoint')),
             methods = $('li.method form', endpoint);
 
         listMethods(endpoint);
@@ -137,6 +165,11 @@
         })
 
         $(endpoint).toggleClass('expanded', true);
+
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = endpoint.find('img.down');
+        img.attr('src',src);
 
     });
 

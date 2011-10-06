@@ -444,9 +444,7 @@ li {
   overflow: hidden;
   *zoom: 1;
   margin-top: 10px;
-  border: 1px solid #999;
-  border-width: 1px 0;
-  padding: 10px 0;
+  padding-bottom: 10px;
 }
 
 #controls li {
@@ -461,8 +459,7 @@ li {
 
 .endpoint {
   margin: 0;
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #C9C9C9;
+  background-color: #FFF;
   overflow: hidden;
   *zoom: 1;
   -moz-transition-property: background-color;
@@ -477,10 +474,19 @@ li {
   -webkit-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
+  border: 1px solid #97B0CE;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -khtml-border-radius: 5px;
+  border-radius: 5px;
+  margin-bottom:10px;
 }
 
 .endpoint.expanded {
-  background-color: #fff;
+  background-color: #FAFAFA;
+  border: 1px solid #029DE7;
 }
 
 .endpoint > .title {
@@ -489,8 +495,15 @@ li {
   *zoom: 1;
 }
 
+.endpoint .title img{
+  height:19px;
+  top:2px;
+  margin-right:4px;
+  position: relative;
+}
+
 .endpoint > .title .name {
-  width: 730px;
+  width: 728px;
   cursor: pointer;
   font-size: 18px;
   float: left;
@@ -522,11 +535,15 @@ li {
 
 .methods {
   display: none;
+  width:925px;
+  padding-right:10px;
+  padding-bottom:8px;
+  float:right;
 }
 
 .method {
   font-size: 14px;
-  border: 1px solid #eee;
+  border: 1px solid #029DE7;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -539,6 +556,7 @@ li {
           background-repeat: no-repeat;
           background-position: 7px 50%;
       }*/
+   background-color:#E7F0F7;
 }
 
 .method div.headers {
@@ -583,7 +601,6 @@ li {
   -ms-border-radius: 5px;
   -khtml-border-radius: 5px;
   border-radius: 5px;
-  padding:3px;
 }
 
 .method .title:hover {
@@ -619,7 +636,7 @@ li {
   text-align: right;
 }
 
-.method .title .http-method {
+.method form .http-method {
   padding: 0 10px;
   width: 40px;
   font-size: 12px;
@@ -634,8 +651,14 @@ li {
   border-radius: 5px;
   color: #fff;
   line-height: 33px;
-  float: left;
 }
+
+.method form .request-type { 
+  font-size:12px;
+  padding-left:5px;
+  padding-bottom:10px;
+}
+
 
 .method form {
   clear: both;
@@ -645,7 +668,6 @@ li {
 }
 
 .method table {
-  margin-bottom: 15px;
   width: 100%;
 }
 
@@ -709,8 +731,7 @@ li {
 }
 
 .get {
-  background: #e7f0f7;
-  border-color: #029DE7;
+
 }
 
 .get .http-method {
