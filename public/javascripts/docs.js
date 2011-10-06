@@ -17,12 +17,27 @@
     // Toggle show/hide of method details, form, and results
     $('li.method > div.title').click(function() {
         $('form', this.parentNode).slideToggle();
+		
+		var form = $($('form', this.parentNode)[0]);
+		form.toggleClass('expanded');
+		
+		var src = form.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = $(this).find('img.method-arrow');
+        img.attr('src',src);
     })
 
     // Toggle an endpoint
     $('li.endpoint > h3.title div.name').click(function() {
-        $('ul.methods', this.parentNode.parentNode).slideToggle();
-        $(this.parentNode.parentNode).toggleClass('expanded')
+        endpoint = $(this.parentNode.parentNode);
+        $('ul.methods', endpoint).slideToggle();
+
+        endpoint.toggleClass('expanded');
+
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+		
+		var img = $(this).find('img.arrow');
+        img.attr('src',src);
     })
 
     // Toggle all endpoints
@@ -40,6 +55,10 @@
                 methodsList.slideDown();
                 methodsList.parent().toggleClass('expanded', true)
 
+				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+				var img = methodsList.parent().find('img.arrow');
+		        img.attr('src',src);
             }
         } else {
             // All endpoints are expanded, collapse them
@@ -50,6 +69,11 @@
                 var methodsList = $(endpoints[x]);
                 methodsList.slideUp();
                 methodsList.parent().toggleClass('expanded', false)
+
+				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+				var img = methodsList.parent().find('img.arrow');
+		        img.attr('src',src);
             }
         }
 
@@ -68,13 +92,19 @@
             methodListsLength = methodLists.length;
 
             // First make sure all the hidden endpoints are expanded.
-            for (var x = 0; x < methodListsLength; x++) {
-                $(methodLists[x]).slideDown();
+            for (var x = 0; x < methodListsLength; x++) {	
+				$(methodLists[x]).slideDown();
+
             }
 
             // Now make sure all the hidden methods are expanded.
             for (var y = 0; y < methodFormsLength; y++) {
-                $(methodForms[y]).slideDown();
+                var method = $(methodForms[y]);
+				method.slideDown();
+	        	method.toggleClass('expanded', true);
+				
+				var img = method.parent().find('img.method-arrow');
+		        img.attr('src','/images/up.png');
             }
 
         } else {
@@ -83,12 +113,23 @@
                 visibleMethodFormsLength = visibleMethodForms.length;
 
             for (var i = 0; i < visibleMethodFormsLength; i++) {
-                $(visibleMethodForms[i]).slideUp();
+                var method = $(visibleMethodForms[i]);
+				method.slideUp();
+	        	method.toggleClass('expanded', false);
+				
+				var img = method.parent().find('img.method-arrow');
+		        img.attr('src','/images/down.png');
             }
         }
 
         for (var z = 0; z < allEndpointsLength; z++) {
             $(allEndpoints[z]).toggleClass('expanded', true);
+  
+            var endpoint = $(allEndpoints[z]);
+			var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+			var img = endpoint.find('img.arrow');
+	        img.attr('src',src);	
         }
     })
 
@@ -98,7 +139,7 @@
         event.preventDefault();
 
         // Make sure endpoint is expanded
-        var endpoint = $(this).closest('li.endpoint'),
+        var endpoint = $($(this).closest('li.endpoint')),
             methods = $('li.method form', endpoint);
 
         listMethods(endpoint);
@@ -110,9 +151,16 @@
 
         $(visibleMethods).each(function(i, method) {
             $(method).slideUp();
+        	$(method).toggleClass('expanded', false);
+			var img = $(this.parentNode).find('img.method-arrow');
+	        img.attr('src','/images/down.png');
         })
 
         $(endpoint).toggleClass('expanded', true);
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = endpoint.find('img.arrow');
+        img.attr('src',src);
 
     })
 
@@ -122,7 +170,7 @@
         event.preventDefault();
 
         // Make sure endpoint is expanded
-        var endpoint = $(this).closest('li.endpoint'),
+        var endpoint = $($(this).closest('li.endpoint')),
             methods = $('li.method form', endpoint);
 
         listMethods(endpoint);
@@ -134,9 +182,18 @@
 
         $(hiddenMethods).each(function(i, method) {
             $(method).slideDown();
+
+        	$(method).toggleClass('expanded', true);
+			var img = $(this.parentNode).find('img.method-arrow');
+	        img.attr('src','/images/up.png');
         })
 
         $(endpoint).toggleClass('expanded', true);
+
+		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = endpoint.find('img.arrow');
+        img.attr('src',src);
 
     });
 
@@ -181,16 +238,16 @@
         var resultContainer = $('.result', self);
         if (resultContainer.length === 0) {
             resultContainer = $(document.createElement('div')).attr('class', 'result');
+			resultContainer.css('display','none');
             $(self).append(resultContainer);
         }
 
         if ($('pre.response', resultContainer).length === 0) {
 
             // Clear results link
-            var clearLink = $(document.createElement('a'))
+            var clearLink = $(document.createElement('button'))
                 .text('Clear results')
                 .addClass('clear-results')
-                .attr('href', '#')
                 .click(function(e) {
                     e.preventDefault();
 
@@ -227,6 +284,8 @@
 
             resultContainer.append($(document.createElement('pre'))
                 .addClass('response prettyprint'));
+
+		    resultContainer.slideDown();
         }
 
         console.log(params);

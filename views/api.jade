@@ -54,7 +54,10 @@ ul
     - each endpoint in apiDefinition.endpoints
         li.endpoint
             h3.title
-                div.name=endpoint.name
+ 
+                div.name
+                    img.arrow(src='/images/down.png')
+                    #{endpoint.name}
                 div.action-container
                     ul.actions
                         li.list-methods
@@ -71,7 +74,7 @@ ul
                         - var secure =''
                     li(class='method ' + httpmethod + ' ' + secure)
                         div.title
-                            span.http-method #{method.HTTPMethod}
+                            img.method-arrow(src='/images/down.png')
                             span.name #{method.MethodName}
                             span.uri #{method.URI}
                             span.description #{method.Synopsis}
@@ -123,6 +126,9 @@ ul
                                                           input(name='params[' + parameter.Name + ']', value=parameter.Default, placeholder=className)
                                                   td.type=parameter.Type
                                                   td.description=parameter.Description || 'No description'
+                            div.request-type This is an HTTP 
+                                span.http-method #{method.HTTPMethod}
+                                span &nbsp;Request
                             - if (method.headers && method.headers.length > 0)
                                 div.headers
                                     h4.title
