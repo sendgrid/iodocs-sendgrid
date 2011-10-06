@@ -17,6 +17,14 @@
     // Toggle show/hide of method details, form, and results
     $('li.method > div.title').click(function() {
         $('form', this.parentNode).slideToggle();
+		
+		var form = $($('form', this.parentNode)[0]);
+		form.toggleClass('expanded');
+		
+		var src = form.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
+
+		var img = $(this).find('img.method-arrow');
+        img.attr('src',src);
     })
 
     // Toggle an endpoint
@@ -28,7 +36,7 @@
 
 		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 		
-		var img = $(this).find('img.down');
+		var img = $(this).find('img.arrow');
         img.attr('src',src);
     })
 
@@ -49,7 +57,7 @@
 
 				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 
-				var img = methodsList.parent().find('img.down');
+				var img = methodsList.parent().find('img.arrow');
 		        img.attr('src',src);
             }
         } else {
@@ -64,7 +72,7 @@
 
 				var src = methodsList.parent().hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 
-				var img = methodsList.parent().find('img.down');
+				var img = methodsList.parent().find('img.arrow');
 		        img.attr('src',src);
             }
         }
@@ -110,7 +118,7 @@
             var endpoint = $(allEndpoints[z]);
 			var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 
-			var img = endpoint.find('img.down');
+			var img = endpoint.find('img.arrow');
 	        img.attr('src',src);	
         }
     })
@@ -133,13 +141,15 @@
 
         $(visibleMethods).each(function(i, method) {
             $(method).slideUp();
+        	$(method).toggleClass('expanded', false);
+			var img = $(this.parentNode).find('img.method-arrow');
+	        img.attr('src','/images/down.png');
         })
 
         $(endpoint).toggleClass('expanded', true);
-
 		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 
-		var img = endpoint.find('img.down');
+		var img = endpoint.find('img.arrow');
         img.attr('src',src);
 
     })
@@ -162,13 +172,17 @@
 
         $(hiddenMethods).each(function(i, method) {
             $(method).slideDown();
+
+        	$(method).toggleClass('expanded', true);
+			var img = $(this.parentNode).find('img.method-arrow');
+	        img.attr('src','/images/up.png');
         })
 
         $(endpoint).toggleClass('expanded', true);
 
 		var src = endpoint.hasClass('expanded') ? '/images/up.png' : '/images/down.png';
 
-		var img = endpoint.find('img.down');
+		var img = endpoint.find('img.arrow');
         img.attr('src',src);
 
     });

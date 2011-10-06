@@ -459,7 +459,7 @@ li {
 
 .endpoint {
   margin: 0;
-  background-color: #FFF;
+  background-color: #FAFAFA;
   overflow: hidden;
   *zoom: 1;
   -moz-transition-property: background-color;
@@ -474,7 +474,7 @@ li {
   -webkit-transition-timing-function: ease;
   -o-transition-timing-function: ease;
   transition-timing-function: ease;
-  border: 1px solid #97B0CE;
+  border: 1px solid #BEBED0;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   -o-border-radius: 5px;
@@ -485,7 +485,7 @@ li {
 }
 
 .endpoint.expanded {
-  background-color: #FAFAFA;
+  background-color: #FCF9EC;
   border: 1px solid #029DE7;
 }
 
@@ -501,6 +501,8 @@ li {
   margin-right:4px;
   position: relative;
 }
+
+
 
 .endpoint > .title .name {
   width: 728px;
@@ -535,11 +537,20 @@ li {
 
 .methods {
   display: none;
-  width:925px;
-  padding-right:10px;
+  width:918px;
+  padding-right:12px;
   padding-bottom:8px;
   float:right;
 }
+
+.method .title img{
+  height:19px;
+  top:3px;
+  left:8px;
+  margin-right:4px;
+  position: relative;
+}
+
 
 .method {
   font-size: 14px;
@@ -619,7 +630,6 @@ li {
 .method .title span {
   margin: 0 10px 0;
   line-height: 33px;
-  float: left;
 }
 
 .method .title .uri {

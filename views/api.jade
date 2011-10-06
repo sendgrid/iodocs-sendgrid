@@ -56,7 +56,7 @@ ul
             h3.title
  
                 div.name
-                    img.down(src='/images/down.png')
+                    img.arrow(src='/images/down.png')
                     #{endpoint.name}
                 div.action-container
                     ul.actions
@@ -74,6 +74,7 @@ ul
                         - var secure =''
                     li(class='method ' + httpmethod + ' ' + secure)
                         div.title
+                            img.method-arrow(src='/images/down.png')
                             span.name #{method.MethodName}
                             span.uri #{method.URI}
                             span.description #{method.Synopsis}
