@@ -99,7 +99,12 @@
 
             // Now make sure all the hidden methods are expanded.
             for (var y = 0; y < methodFormsLength; y++) {
-                $(methodForms[y]).slideDown();
+                var method = $(methodForms[y]);
+				method.slideDown();
+	        	method.toggleClass('expanded', true);
+				
+				var img = method.parent().find('img.method-arrow');
+		        img.attr('src','/images/up.png');
             }
 
         } else {
@@ -108,7 +113,12 @@
                 visibleMethodFormsLength = visibleMethodForms.length;
 
             for (var i = 0; i < visibleMethodFormsLength; i++) {
-                $(visibleMethodForms[i]).slideUp();
+                var method = $(visibleMethodForms[i]);
+				method.slideUp();
+	        	method.toggleClass('expanded', false);
+				
+				var img = method.parent().find('img.method-arrow');
+		        img.attr('src','/images/down.png');
             }
         }
 
