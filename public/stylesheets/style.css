@@ -485,7 +485,7 @@ li {
 }
 
 .endpoint.expanded {
-  background-color: #FCF9EC;
+  background-color: #CFD7DD;
   border: 1px solid #029DE7;
 }
 
@@ -494,6 +494,11 @@ li {
   overflow: hidden;
   *zoom: 1;
 }
+
+.endpoint:hover {
+  border-color: #8F9EAA;
+}
+
 
 .endpoint .title img{
   height:19px;
@@ -674,7 +679,7 @@ li {
   clear: both;
   padding: 15px;
   display: none;
-  border-top: 1px dashed #029DE7;
+  border-top: 1px dashed #A3B5CF;
 }
 
 .method table {
@@ -706,6 +711,13 @@ li {
 
 .method td.type {
   font-size: 12px;
+}
+
+.method h4:first-child {
+  border-top:1px dashed;
+  padding-top:15px;
+  margin-top: 15px;
+  margin-bottom: 3px;
 }
 
 .method h4 {
@@ -740,8 +752,8 @@ li {
   border-color: rgba(255, 100, 100, 0.5);
 }
 
-.get {
-
+.parameters td, .parameters th {
+	border-right:1px ;
 }
 
 .get .http-method {
@@ -749,6 +761,31 @@ li {
 }
 
 .get th, .get td {
+  border-right:	1px solid #9ac0de;
+  border-bottom: 1px solid #9ac0de;
+}
+
+.get tr:last-child td {
+  border-right:	1px solid #9ac0de;
+  border-bottom: 0;
+}
+
+.get tr:last-child td:last-child {
+  border-right:	0;
+  border-bottom: 0;
+}
+
+.get tr th:last-child {
+  border-right:	0;
+  border-bottom: 0;
+}
+
+.get tr td:last-child {
+  border-right:	0;
+  border-bottom: 1px solid #9ac0de;
+}
+.get tr:last-child th:last-child {
+  border-right:	0;
   border-bottom: 1px solid #9ac0de;
 }
 
