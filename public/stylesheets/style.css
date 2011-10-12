@@ -423,8 +423,9 @@ li {
 }
 
 .credentials #signupLink {
-	clear:both;
-	padding-top:5px;
+  position: relative;
+  top: -20px;
+  right:-250px;
 }
 
 .credentials form {
