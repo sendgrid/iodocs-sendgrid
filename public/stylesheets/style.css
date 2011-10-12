@@ -422,6 +422,11 @@ li {
   margin-right: 15px;
 }
 
+.credentials #signupLink {
+	clear:both;
+	padding-top:5px;
+}
+
 .credentials form {
   margin-top: 10px;
 }

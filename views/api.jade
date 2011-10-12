@@ -42,6 +42,9 @@ form#credentials
              - if (apiInfo.oauth && apiInfo.oauth.type !='two-legged')
                  div
                     input(name='oauth', value='Authenticate with OAuth', type='submit', id='oauth-auth')
+             
+             div(id='signupLink')
+                 a(href="http://sendgrid.com/user/signup") Don't have an account? Sign up for free!
 
 div(id='controls')
     ul
@@ -74,7 +77,8 @@ ul
                         - var secure =''
                     li(class='method ' + httpmethod + ' ' + secure)
                         div.title
-                            img.method-arrow(src='/images/down.png')
+                            img.method-
+                            arrow(src='/images/down.png')
                             span.name #{method.MethodName}
                             span.uri #{method.URI}
                             span.description #{method.Synopsis}
