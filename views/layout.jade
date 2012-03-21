@@ -10,14 +10,6 @@ html
         link(rel='stylesheet', href='/stylesheets/style.css')
 
     body
-        div(id='header')
-            div(id='header-logo')
-                - if (apiInfo.logo)
-                    a(href='http://www.sendgrid.com/') 
-                        img(src=apiInfo.logo) 
-                - else
-                    h2=apiInfo.name
-                    
         div(id='body-container')
             !{body}
             div(id='io-footer')
